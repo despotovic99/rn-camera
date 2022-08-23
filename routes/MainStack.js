@@ -2,6 +2,7 @@ import {createStackNavigator} from "react-navigation-stack";
 import {createAppContainer} from "react-navigation";
 import Pocetni from "../screens/Pocetni";
 import Fingerprint from "../screens/Fingerprint";
+import Kamera from "../screens/Kamera";
 
 const screens = {
     Fingerprint: {
@@ -9,6 +10,9 @@ const screens = {
     },
     Pocetni: {
         screen: Pocetni
+    },
+    Kamera: {
+        screen: Kamera
     }
 
 }

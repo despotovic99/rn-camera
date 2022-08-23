@@ -14,6 +14,10 @@ export default function Fingerprint(props) {
         })();
     })
 
+    function removeAuth() {
+        setIsAuthenticated(false);
+    }
+
     function onAuth() {
 
         if (!isAuthenticated) {
@@ -27,7 +31,7 @@ export default function Fingerprint(props) {
                     props.navigation.navigate('Pocetni')
                 }
             })
-        }else{
+        } else {
             props.navigation.navigate('Pocetni')
         }
 
@@ -36,8 +40,15 @@ export default function Fingerprint(props) {
 
     return (
         <View>
-            <Text>Otisak prsta ekran</Text>
-            <Button title={"Potvrdi identitet"} onPress={onAuth}/>
+            {
+                isAuthenticated ?
+                    <Text>Identitet potvrdjen</Text>
+                    :
+                    <Text>Otisak prsta ekran</Text>}
+            {
+                isAuthenticated ? <Button title={'Ukloni potvrdu'} onPress={removeAuth}/> :<></>
+            }
+            <Button title={isAuthenticated ? "Pokreni aplikaciju" : "Potvrdi identitet"} onPress={onAuth}/>
         </View>
     );
 }

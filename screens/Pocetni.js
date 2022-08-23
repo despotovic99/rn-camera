@@ -1,10 +1,16 @@
 import React from 'react';
-import {Text, View} from "react-native";
+import {Button, Text, View} from "react-native";
 
-function Pocetni({navigation}) {
+function Pocetni(props) {
+
+    const cameraStart = () => {
+        props.navigation.navigate('Kamera');
+    }
+
     return (
         <View>
             <Text>Pocetni ekran</Text>
+            <Button title={"Pokreni kameru"} onPress={cameraStart}/>
         </View>
     );
 }
