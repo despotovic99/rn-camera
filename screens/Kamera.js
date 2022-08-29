@@ -37,7 +37,7 @@ function Kamera(props) {
     };
 
     if (photo) {
-        let sharePic = () => {
+        let sharePhoto = () => {
             shareAsync(photo.uri).then(() => {
                 setPhoto(undefined);
             });
@@ -52,7 +52,7 @@ function Kamera(props) {
         return (
             <SafeAreaView style={styles.container}>
                 <Image style={styles.preview} source={{ uri: "data:image/jpg;base64," + photo.base64 }} />
-                <Button title="Podeli" onPress={sharePic} />
+                <Button title="Podeli" onPress={sharePhoto} />
                 {hasMediaLibraryPermission ? <Button title="Sacuvaj" onPress={savePhoto} /> : undefined}
                 <Button title="Odbaci" onPress={() => setPhoto(undefined)} />
             </SafeAreaView>
